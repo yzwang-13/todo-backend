@@ -16,6 +16,7 @@ public class HelloWorldBean implements java.io.Serializable{
         this.message = message;
     }
 
+    
     @Override
     public String toString() {
         return "HelloWorldBean{" +
