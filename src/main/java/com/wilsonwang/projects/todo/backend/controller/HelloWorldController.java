@@ -1,9 +1,12 @@
-package com.wilsonwang.projects.todo.backend;
+package com.wilsonwang.projects.todo.backend.controller;
 
+import com.wilsonwang.projects.todo.backend.controller.HelloWorldBean;
 import org.springframework.web.bind.annotation.*;
 
 // Controller
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "*")
 public class HelloWorldController {
 
     // GET
@@ -33,6 +36,7 @@ public class HelloWorldController {
             @RequestParam String id,
             @RequestParam String nick
             ) {
-        return new HelloWorldBean("hello world " + pathName + id + nick);
+        throw new RuntimeException("Server was down");
+//        return new HelloWorldBean("hello world " + pathName + id + nick);
     }
 }

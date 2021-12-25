@@ -1,4 +1,4 @@
-package com.wilsonwang.projects.todo.backend;
+package com.wilsonwang.projects.todo.backend.controller;
 
 public class HelloWorldBean implements java.io.Serializable{
 
