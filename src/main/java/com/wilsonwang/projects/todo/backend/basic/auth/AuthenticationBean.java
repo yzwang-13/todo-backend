@@ -1,10 +1,10 @@
 package com.wilsonwang.projects.todo.backend.basic.auth;
 
-public class HelloWorldBean implements java.io.Serializable{
+public class AuthenticationBean implements java.io.Serializable{
 
     private String message;
 
-    public HelloWorldBean(String message) {
+    public AuthenticationBean(String message) {
         this.message = message;
     }
 

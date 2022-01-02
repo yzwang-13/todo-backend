@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 public class BasicAuthenticationController {
 
-    // hello-world-bean
-    @GetMapping(path = "/hello-world-bean")
+    // basicauth bean
+    @GetMapping(path = "/basicauth")
     public AuthenticationBean helloWorldBean() {
         return new AuthenticationBean("You are authenticated");
     }
