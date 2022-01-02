@@ -3,9 +3,11 @@ package com.wilsonwang.projects.todo.backend.service;
 import com.wilsonwang.projects.todo.backend.model.Todo;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class TodoHardcodedService {
@@ -14,15 +16,17 @@ public class TodoHardcodedService {
     private static int counter = 0;
 
     static {
-        todos.add(new Todo("wilson", 123,new Date(2021, 11, 11), "Cook", false));
-        todos.add(new Todo("evelyn",234, new Date(2021, 12, 11), "Go to Coles", false));
-        todos.add(new Todo("aaa", 345, new Date(2014, 10, 11), "Learn java", false));
+        todos.add(new Todo("wilson", "123", LocalDate.of(2014, 2, 14), "Cook", false));
+        todos.add(new Todo("evelyn","234", LocalDate.of(2014, 2, 14), "Go to Coles", false));
+        todos.add(new Todo("aaa", "345", LocalDate.of(2014, 2, 14), "Learn java", false));
     }
     public  List<Todo> getTodos() {
         return todos;
     }
 
-    public  Todo deleteTodo(long id) {
+
+
+    public  Todo deleteTodo(String id) {
         Todo todo = findById(id);
         if (todo == null) {
             return null;
@@ -32,12 +36,33 @@ public class TodoHardcodedService {
         }else {
             return null;
         }
-
     }
 
-    private Todo findById(long id) {
+    public Todo createTodo(Todo todo) {
+        todo.setId(UUID.randomUUID().toString());
+        todos.add(todo);
+        return todo;
+    }
+
+    public Todo addTodo(Todo todo) {
+        todos.add(todo);
+        return todo;
+    }
+
+    public Todo updateTodo(String oldTodoId, Todo newTodo) {
+        Todo oldTodo = findById(oldTodoId);
+        if (oldTodo == null) {
+            return null;
+        }else {
+            deleteTodo(oldTodoId);
+            addTodo(newTodo);
+            return newTodo;
+        }
+    }
+
+    private Todo findById(String id) {
         for (Todo todo: todos) {
-            if (todo.getId() == id) {
+            if (todo.getId().equals(id)) {
                 return todo;
             }
         }
