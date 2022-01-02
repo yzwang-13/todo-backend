@@ -1,16 +1,17 @@
 package com.wilsonwang.projects.todo.backend.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
 public class Todo {
-    private long id;
+    private String id;
     private String username;
-    private Date targetDate;
+    private LocalDate targetDate;
     private String description;
     private Boolean done;
 
-    public Todo(String username, long id, Date targetDate, String description, Boolean done) {
+    public Todo(String username, String id, LocalDate targetDate, String description, Boolean done) {
         this.username = username;
         this.id = id;
         this.targetDate = targetDate;
@@ -31,6 +32,17 @@ public class Todo {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", targetDate=" + targetDate +
+                ", description='" + description + '\'' +
+                ", done=" + done +
+                '}';
+    }
+
     public String getUsername() {
         return username;
     }
@@ -39,11 +51,12 @@ public class Todo {
         this.username = username;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -55,11 +68,11 @@ public class Todo {
         this.description = description;
     }
 
-    public Date getTargetDate() {
+    public LocalDate getTargetDate() {
         return targetDate;
     }
 
-    public void setTargetDate(Date targetDate) {
+    public void setTargetDate(LocalDate targetDate) {
         this.targetDate = targetDate;
     }
 
