@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.*;
 
 // Controller
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "*")
-public class HelloWorldController {
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
+public class HelloWorldContgit duroller {
 
     // GET
     // URI - /hello-world
